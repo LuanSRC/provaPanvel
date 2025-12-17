@@ -37,7 +37,7 @@ class ListaTarefas {
       let idDeletar = indice - 1;
       this.lista[
         idDeletar
-      ].descricao = `${this.lista[idDeletar].descricao} CONCLUÍDA`;
+      ].descricao = `${this.lista[idDeletar].descricao} FINALIZADA`;
       this.lista[idDeletar].concluida = true;
     } else {
       throw new Error("Índice inválido");
