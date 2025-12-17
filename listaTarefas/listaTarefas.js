@@ -61,6 +61,8 @@ function teste() {
   lista.marcar_concluida(1);
   lista.remover(1);
   lista.listar();
+  lista.marcar_concluida(2);
+  lista.listar();
 }
 
 teste();
