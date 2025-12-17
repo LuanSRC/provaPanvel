@@ -31,7 +31,13 @@ class ListaTarefas {
     });
   }
   marcar_concluida(indice) {
-    this.lista[indice].descricao = `${this.lista[indice].descricao} CONCLUÍDA`;
+    if (indice <= this.lista.length) {
+      this.lista[
+        indice
+      ].descricao = `${this.lista[indice].descricao} CONCLUÍDA`;
+    } else {
+      throw new Error("Índice inválido");
+    }
   }
   total() {
     return `Existem ${this.lista.length} tarefa(s) cadastrada(s).`;
