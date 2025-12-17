@@ -34,11 +34,11 @@ class ListaTarefas {
   }
   marcar_concluida(indice) {
     if (indice <= this.lista.length) {
-      let idDeletar = indice - 1;
+      let idSelecionado = indice - 1;
       this.lista[
-        idDeletar
-      ].descricao = `${this.lista[idDeletar].descricao} FINALIZADA`;
-      this.lista[idDeletar].concluida = true;
+        idSelecionado
+      ].descricao = `${this.lista[idSelecionado].descricao} FINALIZADA`;
+      this.lista[idSelecionado].concluida = true;
     } else {
       throw new Error("Índice inválido");
     }
