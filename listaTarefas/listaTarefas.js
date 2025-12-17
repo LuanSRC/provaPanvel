@@ -2,12 +2,12 @@ class Tarefa {
   id;
   titulo;
   descricao;
-  status;
+  concluida;
   constructor(id, titulo, descricao) {
     this.id = id;
     this.titulo = titulo;
     this.descricao = descricao;
-    this.status = false;
+    this.concluida = false;
   }
 }
 
@@ -19,12 +19,14 @@ class ListaTarefas {
     this.lista.push(novaTarefa);
   }
   remover(indice) {
-    if (indice <= this.lista.length) {
-      this.lista = this.lista.splice(indice, 1);
+    if (indice > 0 && indice <= this.lista.length) {
+      const posicao = indice - 1;
+      this.lista.splice(posicao, 1);
     } else {
       throw new Error("Índice inválido");
     }
   }
+
   listar() {
     this.lista.forEach((tarefa) => {
       console.log(`${tarefa.id}: ${tarefa.titulo} - ${tarefa.descricao}`);
@@ -32,9 +34,11 @@ class ListaTarefas {
   }
   marcar_concluida(indice) {
     if (indice <= this.lista.length) {
+      let idDeletar = indice - 1;
       this.lista[
-        indice
-      ].descricao = `${this.lista[indice].descricao} CONCLUÍDA`;
+        idDeletar
+      ].descricao = `${this.lista[idDeletar].descricao} CONCLUÍDA`;
+      this.lista[idDeletar].concluida = true;
     } else {
       throw new Error("Índice inválido");
     }
@@ -49,7 +53,13 @@ function teste() {
 
   lista.adicionar("Comer carne", "Preciso comer carne");
   lista.adicionar("Limpar casa", "Limpar a casa para o final de semana");
+  lista.adicionar("Mercado", "Comprar arroz, feijão, salada e 12 ovos");
+  lista.adicionar(
+    "Trabalho faculdade",
+    "Finalizar trabalho de Desenvolvimento Full Stack"
+  );
   lista.marcar_concluida(1);
+  lista.remover(1);
   lista.listar();
 }
 
