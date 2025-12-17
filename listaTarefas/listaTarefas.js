@@ -14,7 +14,7 @@ class Tarefa {
 class ListaTarefas {
   lista = [];
   adicionar(titulo, descricao) {
-    let id = this.lista.length + 1;
+    let id = this.setId();
     let novaTarefa = new Tarefa(id, titulo, descricao);
     this.lista.push(novaTarefa);
   }
@@ -45,6 +45,10 @@ class ListaTarefas {
   }
   total() {
     return `Existem ${this.lista.length} tarefa(s) cadastrada(s).`;
+  }
+  setId() {
+    let id = this.lista.length + 1;
+    return id;
   }
 }
 
